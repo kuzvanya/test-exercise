@@ -13,4 +13,5 @@ export default {
     database: 'pallete_system',
     namingStrategy: new SnakeNamingStrategy(),
   },
+  sessionTTL: 30, // days
 };

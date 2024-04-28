@@ -11,6 +11,7 @@ export class SignupService {
     private readonly userRepository: Repository<User>,
   ) {}
 
+  // Регистрация
   async process(data: SignupDataDto) {
     this.userRepository.save(data);
   }
