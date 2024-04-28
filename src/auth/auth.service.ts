@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Session } from 'src/session/session.entity';
 import { AuthDataDto } from 'src/auth/dto/AuthData.dto';
@@ -35,5 +39,16 @@ export class AuthService {
     });
 
     return { token: session.token };
+  }
+
+  async authBySessionToken(token: string): Promise<User> {
+    const session = await this.sessionRepository.findOneBy({
+      token: token,
+    });
+    if (!session || moment() >= moment(session.expired_at)) {
+      throw new UnauthorizedException('unauthorized');
+    }
+
+    return await this.userRepository.findOneBy({ id: session.user_id });
   }
 }
