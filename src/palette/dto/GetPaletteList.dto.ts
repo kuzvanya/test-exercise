@@ -5,5 +5,5 @@ export class GetPaletteListDto {
   @ApiProperty({
     type: PaletteInstanceResponseDto,
   })
-  palettes: Array<PaletteInstanceResponseDto>;
+  palettes: PaletteInstanceResponseDto[];
 }

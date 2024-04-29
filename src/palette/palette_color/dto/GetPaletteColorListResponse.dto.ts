@@ -3,7 +3,7 @@ import { PaletteColorInstanceDto } from 'src/palette/palette_color/dto/PaletteCo
 
 export class GetPaletteColorListResponseDto {
   @ApiProperty({
-    type: PaletteColorInstanceDto,
+    type: [PaletteColorInstanceDto],
   })
-  palette_colors: Array<PaletteColorInstanceDto>;
+  palette_colors: PaletteColorInstanceDto[];
 }
