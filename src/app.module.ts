@@ -9,12 +9,13 @@ import { AuthModule } from 'src/auth/auth.module';
 import { Session } from 'src/session/session.entity';
 import { PaletteModule } from 'src/palette/palette.module';
 import { Palette } from 'src/palette/palette.entity';
+import { PaletteColor } from 'src/palette/palette_color/palette_color.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       ...config.get('typeORMDataSource'),
-      entities: [User, Session, Palette],
+      entities: [User, Session, Palette, PaletteColor],
     }),
     SignupModule,
     AuthModule,

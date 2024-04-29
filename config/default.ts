@@ -14,4 +14,5 @@ export default {
     namingStrategy: new SnakeNamingStrategy(),
   },
   sessionTTL: 30, // days
+  colorNameSourceUrl: 'https://www.thecolorapi.com',
 };

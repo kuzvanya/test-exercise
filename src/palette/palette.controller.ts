@@ -18,19 +18,18 @@ import { GetPaletteResponseDto } from 'src/palette/dto/GetPaletteResponse.dto';
 
 @Controller('palettes')
 @ApiTags('palletes')
+@UseGuards(AuthGuard)
 export class PaletteController {
   constructor(private readonly paletteService: PaletteService) {}
 
   @Post()
   @ApiOperation({ summary: 'Создание палитры' })
-  @UseGuards(AuthGuard)
   async create(@Body() data: PaletteDataDto, @Request() req): Promise<void> {
     return await this.paletteService.create(data, req.user.id);
   }
 
   @Get()
   @ApiOperation({ summary: 'Получение списка палитры' })
-  @UseGuards(AuthGuard)
   @ApiResponse({ type: GetPaletteListDto })
   async getList(@Request() req): Promise<GetPaletteListDto> {
     return await this.paletteService.getList(req.user.id);
@@ -38,7 +37,6 @@ export class PaletteController {
 
   @Put('/:id')
   @ApiOperation({ summary: 'Обновление палитры' })
-  @UseGuards(AuthGuard)
   async update(
     @Param('id') id: number,
     @Body() data: PaletteDataDto,
@@ -49,7 +47,6 @@ export class PaletteController {
 
   @Get('/:id')
   @ApiOperation({ summary: 'Получение палитры' })
-  @UseGuards(AuthGuard)
   @ApiResponse({ type: GetPaletteResponseDto })
   async getOne(
     @Param('id') id: number,
@@ -60,7 +57,6 @@ export class PaletteController {
 
   @Delete('/:id')
   @ApiOperation({ summary: 'Получение палитры' })
-  @UseGuards(AuthGuard)
   @ApiResponse({ type: GetPaletteResponseDto })
   async remove(@Param('id') id: number, @Request() req): Promise<void> {
     return await this.paletteService.remove(id, req.user.id);
