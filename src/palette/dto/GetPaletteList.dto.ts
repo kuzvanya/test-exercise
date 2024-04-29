@@ -3,7 +3,7 @@ import { PaletteInstanceResponseDto } from 'src/palette/dto/PaletteInstanceRespo
 
 export class GetPaletteListDto {
   @ApiProperty({
-    type: PaletteInstanceResponseDto,
+    type: [PaletteInstanceResponseDto],
   })
   palettes: PaletteInstanceResponseDto[];
 }
