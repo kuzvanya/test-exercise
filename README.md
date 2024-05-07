@@ -14,3 +14,8 @@ Run server:
 ```
 npm run start
 ```
+
+## Run with docker
+```
+docker-compose up
+```

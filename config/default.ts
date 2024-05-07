@@ -6,11 +6,11 @@ export default {
   },
   typeORMDataSource: {
     type: 'postgres',
-    host: '127.0.0.1',
+    host: 'postgres',
     port: 5432,
     username: 'postgres',
-    password: '',
-    database: 'pallete_system',
+    password: 'password',
+    database: 'palette_system',
     namingStrategy: new SnakeNamingStrategy(),
   },
   sessionTTL: 30, // days
